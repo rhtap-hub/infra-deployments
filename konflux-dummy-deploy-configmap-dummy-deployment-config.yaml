@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  DISPLAY_TEXT: Hello from STAGE!
+kind: ConfigMap
+metadata:
+  name: dummy-deployment-config
+  namespace: konflux-dummy-deploy
