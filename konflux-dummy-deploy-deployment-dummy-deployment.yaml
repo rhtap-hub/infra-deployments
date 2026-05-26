@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dummy-deployment
+  name: dummy-deployment
+  namespace: konflux-dummy-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dummy-deployment
+  template:
+    metadata:
+      labels:
+        app: dummy-deployment
+    spec:
+      containers:
+      - env:
+        - name: DISPLAY_TEXT
+          valueFrom:
+            configMapKeyRef:
+              key: DISPLAY_TEXT
+              name: dummy-deployment-config
+        image: quay.io/redhat-appstudio-qe/dummy-deployment:f7df43846e81b78fd48ab057a4c1369b01ec85c5
+        name: dummy-deployment
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 50m
+            memory: 32Mi
+          requests:
+            cpu: 10m
+            memory: 16Mi
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
