@@ -22,7 +22,7 @@ spec:
             configMapKeyRef:
               key: DISPLAY_TEXT
               name: dummy-deployment-config
-        image: quay.io/redhat-appstudio-qe/dummy-deployment:0dbd24987063078f8880f2de567a218144e14c56
+        image: quay.io/redhat-appstudio-qe/dummy-deployment:d2a4ce8b991aba4ff99fade56c6468bd5d510ef6
         name: dummy-deployment
         ports:
         - containerPort: 8080
