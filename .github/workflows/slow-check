@@ -1,0 +1,13 @@
+name: slow-check
+on:
+  pull_request:
+    branches: [main]
+jobs:
+  slow-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait 2 minutes
+        run: |
+          echo "Starting slow check..."
+          sleep 120
+          echo "Check passed!"
